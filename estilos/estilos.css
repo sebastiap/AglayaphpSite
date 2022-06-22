@@ -44,6 +44,13 @@ color:black;
     background-repeat: no-repeat;
     /* comportamiento ante el scroll */
     background-attachment: scroll, fixed;
+	font-weight:bold;
+}
+
+.fondo-portada h3 {
+    font-size: 2em;
+    color: #b4d6ce;
+    padding-top: .5em;
 }
 
 .fondo-login{

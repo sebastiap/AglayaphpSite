@@ -44,17 +44,17 @@ require_once("conexion.php");
                     <div class="col-sm text-center">
                         <img class= "fotos" src="./img/web.png" alt="web">
                         <h3>Paginas Web</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui?</p>
+                        <p>Tener Una Presencia Online Profesional es Fundamental, y tu Página Web es el Primer Paso. Crea la Tuya y Comparte con Todos tu Tienda Online, Blog o Portafolio Personal. ¡Empieza!</p>
                     </div>
                     <div class="col-sm text-center">
                         <img  class= "fotos" src="./img/ilustracion.png" alt="dibujando estrellas">
                         <h3>Ilustraciones y logos</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui?</p>
+                        <p>Dale vida a cualquier proyecto con imágenes. Haz que tus proyectos resalten. Busca imágenes de la mejor calidad con nuestra ayuda.</p>
                     </div>
                     <div class="col-sm text-center">
                         <img class= "fotos" src="./img/foto.png" alt="foto de campamento">
                         <h3>Fotografia</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, qui?</p>
+                        <p>Nos adaptamos a tus necesidades y trabajamos para resolver los problemas de comunicación.</p>
                     </div>
                 </div>
             </div>
@@ -91,17 +91,17 @@ require_once("conexion.php");
                 <div class="col-sm text-center" >
                     <img class= "fotos" src="./img/gonzalo.jpeg" alt="Gonzalo Hernandez diseñador">
                         <h4>Gonzalo Hernandez</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, sapiente!</p>
+                        <p>Front End Developer. WordPress Developer . Entusiasta de PHP </p>
                     </div>
                     <div class="col-sm text-center">
                     <img class= "fotos" src="./img/lucia.jpeg" alt="Lucia Tercic Diseñadora">
                         <h4>Lucia Tercic</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, sapiente!</p>
+                        <p>Comunicadora. Social Media Manager.Lead Designer.  </p>
                     </div>
                 <div class="col-sm text-center">
                     <img class= "fotos" src="./img/romina.jpg" alt="Romina Montes de Oca Diseñadora">
                         <h4>Romina Montes De Oca</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, sapiente!</p>
+                        <p>Educadora. DataBase Administrator. Bootstrap Expert.  </p>
                     </div>
                 </div>
                 </div>

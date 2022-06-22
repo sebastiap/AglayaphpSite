@@ -114,6 +114,7 @@ require_once 'conexion.php';
 			if(isset($_SESSION['usuario'])):
 			$iduser = $_SESSION['id'];
 			$promedio = round(($puntajetotal )/ $cantidadcomentarios , 0, PHP_ROUND_HALF_DOWN);
+			echo "<h3> Deje su comentario :</h3>";
 			echo	"<form  action='auth/comentar.php?id=$bdid&user=$iduser&puntajetotal=$puntajetotal&cantidadcomentarios=$cantidadcomentarios' method='POST'>" ;
 			echo	'<div class="form-group ">
 					<label class="colorlbl" for="comentario" class="label">Comentario</label>
@@ -123,8 +124,6 @@ require_once 'conexion.php';
 				</div>
 				<input type="submit" class="btn btn-warning" value="Comentar" >
 			</form>			';
-			echo $promedio;
-			 
 			 endif; 
 			 
 			 ?>

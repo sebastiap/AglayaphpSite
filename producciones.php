@@ -1,4 +1,5 @@
 <?php
+session_start();
 $pagina = 'Producciones';
 require_once 'includes/head.php';
 require_once 'conexion.php';
