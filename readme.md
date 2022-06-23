@@ -1,4 +1,4 @@
-# AGLAYA DESIGNS - PHP + Mysql 🎥
+# AGLAYA DESIGNS - PHP + Mysql 🎥🐐
 El objetivo de este sitio es una colaboracion con Romy y su grupo para incorporar PHP y Mysql a un diseño realizado por ellos. 
 
 ## Conceptos Generales
@@ -9,6 +9,10 @@ El objetivo de este sitio es una colaboracion con Romy y su grupo para incorpora
 
 ## Problemas Resueltos - General 🐛🦗🐞
 
+
+## Bugs 🦗
+* Sesion Bugeada 
+Si se borra la base de datos y la sesion estaba abierta, la pagina no lo nota. Eso lo que provoca es que deje de grabar los comentarios.
 
 ## Problemas Resueltos - Github Pages 🐛
 
