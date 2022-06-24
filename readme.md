@@ -8,14 +8,15 @@ El objetivo de este sitio es una colaboracion con Romy y su grupo para incorpora
 
 
 ## Problemas Resueltos - General 🐛🦗🐞
-[X] Login - Usando Session
-[X] Base de datos - Ver PDO en conexion.php
+- [x] Login - Usando Session
+- [x] Base de datos - Ver PDO en conexion.php
+- [x] Estilos Bootstrap
 
 ## Pendientes - Posibles mejoras
-[ ] Validaciones Login 
-[ ] Validaciones Registro 
-[ ] Validaciones Base de datos 
-[ ] Solucionar Bug 
+- [ ] Validaciones Login 
+- [ ] Validaciones Registro 
+- [ ] Validaciones Base de datos 
+- [ ] Solucionar Bug 
 
 ## Bugs 🦗
 * Sesion Bugeada 
