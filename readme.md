@@ -23,9 +23,10 @@ Se realiza el calculo del promedio de puntajes cada vez que se agrega un nuevo c
 - [x] Estilos Bootstrap
 
 ## Pendientes - Posibles mejoras
-- [ ] Validaciones Login 
-- [ ] Validaciones Registro 
-- [ ] Validaciones Base de datos 
+- [X] Validaciones Login 
+- [X] Validaciones Registro existente
+- [ ] Validaciones Registro Password
+- [X] Validaciones Base de datos 
 - [ ] Solucionar Bug 
 
 ## Bugs 🦗
