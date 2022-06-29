@@ -2,7 +2,7 @@
 <?php
 require_once '../conexion.php';
 session_start();
-	$mail = $_POST['usuario'];
+	$mail = $_POST['mail'];
 	$password = $_POST['password'];
     $consulta =
         "SELECT ID, `MAIL`, `PASSWORD` FROM `USUARIOS` WHERE MAIL = '$mail' LIMIT 1";

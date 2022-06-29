@@ -13,10 +13,10 @@ require_once("includes/head.php");
       <h1 class="titulo">Iniciar sesión</h1>
 		<form action="auth/login.php" method="POST">
 			<div class="form-group ">
-				<label for="usuario" class="colorlbl">Usuario</label>
-				<input class="form-control" type="text" name="usuario" placeholder="usuario" id="usuario">
+				<label for="mail" class="colorlbl">Mail</label>
+				<input class="form-control" type="text" name="mail" placeholder="Ingrese su email..." id="mail">
 				<label for="password" class="colorlbl">Contraseña</label>
-				<input class="form-control" type="password" name="password" placeholder="contraseña" id="password">
+				<input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña..." id="password">
 			</div>
 			   <input type="submit" value="Ingresar" class="btn btn-warning">
 		</form>

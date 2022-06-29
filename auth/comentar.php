@@ -15,9 +15,14 @@ if(!empty($_POST)){
 	echo "<h1>$puntaje </h1>";
 	echo "<h1>$puntajetotal </h1>";
 	echo "<h1>CANT	$cantidadcomentarios </h1>";
-
-
-        $sql =
+	
+	$query = 0;
+	$query2 = 0;
+	if (filter_var($puntaje, FILTER_VALIDATE_INT, array("options" => array("min_range"=>1, "max_range"=>5))) === false) {
+		$error = true;
+	} else {
+		$error = false;
+		$sql =
         "INSERT INTO comentarios
         (CONTENIDO, ID_PRODUCCION, ID_USUARIO, PUNTAJE)
         VALUES
@@ -28,25 +33,39 @@ if(!empty($_POST)){
 		$sql2 = "UPDATE producciones SET PUNTAJE = $promedio WHERE ID ='$bdid'";
 
 		$query2 = Connection::connectDb()->exec($sql2);
-		
-			echo "<h1>QUERY $query </h1>";
-	echo "<h1>QUERY2	$query2</h1>";
+	}
 
-			
-		if($query == 1 && $query2 == 1){
+		echo $query;
+		echo $query2;
+		echo $error;
+		if($query == 1 && $query2 == 1 && !$error){
 
             echo "INSERTO";
+			$_SESSION['exito'] = "Comentario insertado. El promedio de la produccion ha cambiado!";
 			header('location: ../produccion.php?id='.$bdid.'');
-			$_SESSION['exito'] = "Comentario insertado";
+			
+					}
+		else if($query == 1 && !$error){
+
+            echo "INSERTO";
+			$_SESSION['exito'] = "Comentario insertado. ";
+			header('location: ../produccion.php?id='.$bdid.'');
+			
 					}
 		else {
 
             echo "NO INSERTO";
-			header('location: ../index.php?id='.$bdid.'');
-			$_SESSION['error'] = "Fallo al insertar";
-					}
+			if (error){
+				$_SESSION['error'] = "Fallo al insertar. El valor insertado no es valido.";
+			}
+			else {
+				$_SESSION['error'] = "Fallo al insertar";
+			}
+			header('location: ../produccion.php?id='.$bdid.'');
+			
+			}
 				
    
-    }    
+         }    
 
 

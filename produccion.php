@@ -7,8 +7,18 @@ require_once 'conexion.php';
 
 <!-- Contenido pagina -->
 <main>
+		<?php
+        if(isset($_SESSION['error'])){
+            echo '<div class="alert-danger">' . $_SESSION['error']. '</div>' ;
+            unset($_SESSION['error']);
+        }
+        if(isset($_SESSION['exito'])){
+            echo '<div class="alert-success">' . $_SESSION['exito']. '</div>';
+            unset($_SESSION['exito']);
+        }
+   
+        ?>
         <div class="row banners">
-
                 <!-- carrusel -->
                 <div id="carouselExampleIndicators" class="carousel slide my-4 ocultar" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -120,7 +130,7 @@ require_once 'conexion.php';
 					<label class="colorlbl" for="comentario" class="label">Comentario</label>
 					<input class="form-control" type="textarea" name="comentario" placeholder="Ingresa un comentario" id="comentario">
 					<label class="colorlbl" for="puntaje" class="label">Puntaje</label>
-					<input class="form-control" type="text" name="puntaje" placeholder="puntaje" id="puntaje">
+					<input class="form-control" type="text" name="puntaje" placeholder="Ingrese un puntaje del 1 al 5" id="puntaje">
 				</div>
 				<input type="submit" class="btn btn-warning" value="Comentar" >
 			</form>			';

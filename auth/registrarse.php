@@ -8,14 +8,31 @@ if(!empty($_POST)){
     $pass = $_POST["password"];
     $mail = $_POST["mail"];
 
+	$user = strstr($mail, '@', true);
+	
+	$sql ="SELECT `MAIL` FROM `usuarios` WHERE MAIL ='$mail'";
+	$query = Connection::connectDb()->query($sql);
 
+	$mails = Connection::obtenerArray($query);
+	$existe = 0;
+	foreach ($mails as $aparicion){
+		$existe +=1;
+	}
+	
+	if ($existe > 0) {
+		    echo "NO INSERTO";
+			$_SESSION['error'] = "ERROR AL REGISTRARSE. EL MAIL INGRESADO YA EXISTE EN NUESTRA BASE DE DATOS. $sql $existe ";
+			header('location: ../index.php');
+			}
+	else {
         $sql =
         "INSERT INTO usuarios
         (NOMBRE, MAIL, `PASSWORD`, USER, CATEGORIA)
         VALUES
-        ('$nombre', '$mail', '$pass', null,'Cliente');";
+        ('$nombre', '$mail', '$pass', '$user','Cliente');";
 
         $query = Connection::connectDb()->exec($sql);
+		echo $query;
 
         
         if($query == 1 ){
@@ -27,10 +44,10 @@ if(!empty($_POST)){
         else {
 
             echo "NO INSERTO";
-			$_SESSION['error'] = 'ERROR AL REGISTRARSE';
+			$_SESSION['error'] = "ERROR AL REGISTRARSE. HUBO UN ERROR, PRUEBE MAS TARDE.";
 			header('location: ../index.php');
-        }
-        
+			}
+		}
     }    
 
 
