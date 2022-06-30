@@ -16,9 +16,8 @@ require_once("includes/head.php");
 <div class="form-group ">
     <label class="colorlbl" for="mail">Email</label>
     <input class="form-control" type="email" name="mail" id="mail" placeholder="Ingresá tu mail" required>
-    <!-- para este ejemplo vamos a utilizar un minimo de 4 caracteres pero deberiamos exigir 8 como minimo -->
     <label class="colorlbl" for="password">Contraseña</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Mínimo 4 caracteres" required>
+    <input class="form-control" type="password" name="password" id="password" placeholder="Ingrese una contraseña con un mínimo 6 caracteres" required>
 
     <label class="colorlbl" for="nombre">Nombre</label>
     <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>

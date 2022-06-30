@@ -21,36 +21,42 @@ if(!empty($_POST)){
 	
 	if ($existe > 0) {
 		    echo "NO INSERTO";
-			$_SESSION['error'] = "ERROR AL REGISTRARSE. EL MAIL INGRESADO YA EXISTE EN NUESTRA BASE DE DATOS. $sql $existe ";
+			$_SESSION['error'] = "ERROR AL REGISTRARSE. EL MAIL INGRESADO YA EXISTE EN NUESTRA BASE DE DATOS.";
 			header('location: ../index.php');
 			}
 	else {
-        $sql =
-        "INSERT INTO usuarios
-        (NOMBRE, MAIL, `PASSWORD`, USER, CATEGORIA)
-        VALUES
-        ('$nombre', '$mail', '$pass', '$user','Cliente');";
-
-        $query = Connection::connectDb()->exec($sql);
-		echo $query;
-
-        
-        if($query == 1 ){
-
-            echo "INSERTO";
-			$_SESSION['exito'] = "Se ha registrado con exito";
-			header('location: ../index.php');
-        }
-        else {
-
-            echo "NO INSERTO";
-			$_SESSION['error'] = "ERROR AL REGISTRARSE. HUBO UN ERROR, PRUEBE MAS TARDE.";
-			header('location: ../index.php');
-			}
+		
+		if(strlen($pass)< 6){
+        $_SESSION['error'] = 'ERROR AL REGISTRARSE.Tienes que poner una contrasena con 6 o mas caracteres';
+		header('location: ../index.php');
 		}
-    }    
+		else {
+			$sql =
+			"INSERT INTO usuarios
+			(NOMBRE, MAIL, `PASSWORD`, USER, CATEGORIA)
+			VALUES
+			('$nombre', '$mail', '$pass', '$user','Cliente');";
 
+			$query = Connection::connectDb()->exec($sql);
+			echo $query;
 
+			
+			if($query == 1 ){
+
+				echo "INSERTO";
+				$_SESSION['exito'] = "Se ha registrado con exito";
+				header('location: ../index.php');
+			}
+			else {
+
+				echo "NO INSERTO";
+				$_SESSION['error'] = "ERROR AL REGISTRARSE. HUBO UN ERROR, PRUEBE MAS TARDE.";
+				header('location: ../index.php');
+				}
+			}
+		}    
+
+	}
 
 
 /*function debug_to_console($data) {
