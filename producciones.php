@@ -7,6 +7,17 @@ require_once 'conexion.php';
 
 <!-- Contenido pagina -->
 <main>
+            <?php
+        if(isset($_SESSION['error'])){
+            echo '<div class="alert-danger">' . $_SESSION['error']. '</div>' ;
+            unset($_SESSION['error']);
+        }
+        if(isset($_SESSION['exito'])){
+            echo '<div class="alert-success">' . $_SESSION['exito']. '</div>';
+            unset($_SESSION['exito']);
+        }
+   
+        ?>
         <div class="row banners">
 
                 <!-- carrusel -->
@@ -47,10 +58,19 @@ require_once 'conexion.php';
     <!-- presentacion nueva -->
     <?php
     $consulta =
-        'SELECT `ID`,`NOMBRE_PRODUCCION`,`URLIMAGEN`, `ID_CATEGORIA`, `FECHA_ASIGNACION`, `FECHA_ENTREGA`, `ID_USUARIO`, `PUNTAJE` FROM `producciones`';
+        'SELECT `ID`,`DESCRIPCION`,`NOMBRE_PRODUCCION`,`URLIMAGEN`, `ID_CATEGORIA`, `FECHA_ASIGNACION`, `FECHA_ENTREGA`, `ID_USUARIO`, `PUNTAJE` FROM `producciones`';
 
     $query = Connection::connectDb()->query($consulta);
     $producciones = Connection::obtenerArray($query);
+    ?>
+
+        <!-- presentacion nueva -->
+    <?php
+    $consultaCategorias =
+        'SELECT * FROM `categorias`';
+
+    $queryCat = Connection::connectDb()->query($consultaCategorias);
+    $categorias = Connection::obtenerArray($queryCat);
     ?>
 
     <li class="col">
@@ -64,6 +84,7 @@ require_once 'conexion.php';
 
                 echo "<img width='300' height='300' src='img/producciones/$img.JPEG' alt='$img'>";
                 echo '<h3>' . $produccion['NOMBRE_PRODUCCION'] . '</h3>';
+                echo '<p>' . $produccion['DESCRIPCION'] . '</p>';
                 echo '<p>' . $produccion['FECHA_ASIGNACION'] . '</p>';
 				for ($i = 1; $i <= $produccion['PUNTAJE']; $i++) {
 				echo  '⭐' ;
@@ -73,6 +94,34 @@ require_once 'conexion.php';
 				echo "<a class='nav-link' href='produccion.php?id=$idpost'> <i class='fa fa-user-o mr-2'></i>Ver Comentarios</a>";
                 # sistema de calificacion
         }}
+
+
+            if(isset($_SESSION['usuario']) && $_SESSION['id'] <4):
+            $iduser = $_SESSION['id'];
+            echo "<h3> Publicar un nuevo Articulo :</h3>";
+            echo    "<form  action='auth/publicar.php?user=$iduser' method='POST' enctype='multipart/form-data'>" ;
+            echo    '<div class="form-group ">
+                    <label class="colorlbl" for="publicacion" class="label">Publicacion</label>
+                    <input class="form-control" type="textarea" name="publicacion" placeholder="Ingresa el titulo de la publicacion" id="publicacion">
+                    <label class="colorlbl" for="contenido" class="label">Contenido</label>
+                    <input class="form-control" type="textarea" name="contenido" placeholder="Escriba el contenido de la publicacion" id="contenido">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="btn btn-warning" type="submit" value="Enviar" name="submit">
+                    <label class="colorlbl" for="categoria" class="label">Categoria</label>
+                    <select name="categoria" id="categoria">
+                    ';
+
+                foreach ($categorias as $categoria){
+               $cat = $categoria['NOMBRE_CAT'];
+               $catid = $categoria['ID'];
+               echo '<option value='. $catid .'>'.$cat.  '</option>';
+               };
+            echo    '</select>     </div>
+
+            </form>         ';
+             endif; 
+
+
         ?>
     </li>
 </ul>
@@ -82,3 +131,6 @@ require_once 'conexion.php';
 <!-- inicio Footer -->
 <?php require_once 'includes/footer.php';
 ?>
+
+
+

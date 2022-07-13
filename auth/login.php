@@ -5,7 +5,7 @@ session_start();
 	$mail = $_POST['mail'];
 	$password = $_POST['password'];
     $consulta =
-        "SELECT ID, `MAIL`, `PASSWORD` FROM `USUARIOS` WHERE MAIL = '$mail' LIMIT 1";
+        "SELECT ID, `MAIL`, `PASSWORD` FROM `usuarios` WHERE MAIL = '$mail' LIMIT 1";
 
     $query = Connection::connectDb()->query($consulta);
     $producciones = Connection::obtenerArray($query);

@@ -59,7 +59,7 @@ require_once 'conexion.php';
 	$bdid = htmlspecialchars($_GET["id"]);
 
     $consulta =
-        "SELECT `ID`,`NOMBRE_PRODUCCION`,`URLIMAGEN`, `ID_CATEGORIA`, `FECHA_ASIGNACION`, `FECHA_ENTREGA`, `ID_USUARIO`, `PUNTAJE` FROM `producciones` WHERE ID ='$bdid'";
+        "SELECT `ID`,`DESCRIPCION`,`NOMBRE_PRODUCCION`,`URLIMAGEN`, `ID_CATEGORIA`, `FECHA_ASIGNACION`, `FECHA_ENTREGA`, `ID_USUARIO`, `PUNTAJE` FROM `producciones` WHERE ID ='$bdid'";
 		
 
     $query = Connection::connectDb()->query($consulta);
@@ -89,6 +89,7 @@ require_once 'conexion.php';
                 echo "<img width='500' height='500' src='img/producciones/$img.JPEG' alt='$img'>";
 
                 echo '<h3>' . $produccion['NOMBRE_PRODUCCION'] . '</h3>';
+                echo '<p>' . $produccion['DESCRIPCION'] . '</p>';
                 echo '<p>' . $produccion['FECHA_ASIGNACION'] . '</p>';
 				for ($i = 1; $i <= $produccion['PUNTAJE']; $i++) {
 				echo  '⭐' ;
