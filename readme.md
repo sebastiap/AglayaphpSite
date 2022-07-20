@@ -33,6 +33,8 @@ Tambien se utilizo las funcionalidades de sesion de PHP, para administrar variab
 - [X] Validaciones Registro existente
 - [X] Validaciones Registro Password
 - [X] Validaciones Base de datos 
+- [ ] Json para el Registro
+- [ ] Edicion de publicaciones
 - [ ] Solucionar Bug 
 
 ## Bugs 🦗
